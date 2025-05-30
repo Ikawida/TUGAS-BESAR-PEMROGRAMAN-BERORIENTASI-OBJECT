@@ -1,52 +1,188 @@
-                                                                                                # Aplikasi Kasir Toko Oleh-oleh
+Oke! Berikut penjelasan **detail tiap kelas**, atribut, metode utama, dan **relasi antar kelas** dalam aplikasi kasir toko oleh-oleh versi Java + database. Ini supaya bisa kamu jadikan dokumentasi yang lengkap di README atau laporan tugas.
 
-## Deskripsi Singkat
-Aplikasi kasir berbasis Java (Servlet & JSP) yang terhubung ke database MySQL.  
-Fungsi utama aplikasi ini adalah untuk mengelola produk oleh-oleh, memproses transaksi penjualan, dan mencetak struk pembayaran.
+---
 
-## Fitur
-- Menampilkan daftar produk
-- Menambahkan produk ke keranjang
-- Memproses pembayaran dengan perhitungan kembalian otomatis
-- Menyimpan data transaksi ke database
+# Detail Kelas dan Relasi Aplikasi Kasir Toko Oleh-Oleh
 
-## Struktur Kelas
+---
 
-- **Produk**: Menyimpan data produk (kode, nama, harga, stok)
-- **Transaksi**: Menyimpan ringkasan transaksi (total, pembayaran, kembalian)
-- **DetailTransaksi**: Menyimpan rincian setiap produk yang dibeli dalam sebuah transaksi
-- **DAO**: Kelas akses database untuk Produk, Transaksi, dan DetailTransaksi
+## 1. Kelas **Produk**
 
-## Kelas Diagram
+**Deskripsi:**
+Mewakili produk oleh-oleh yang dijual toko.
 
-![Class Diagram](images/class-diagram.png)
+**Atribut:**
 
-## Cara Menjalankan Aplikasi
+* `kodeProduk : String` — kode unik produk (PK)
+* `namaProduk : String` — nama produk
+* `harga : int` — harga satuan produk
+* `sisaStok : int` — jumlah stok yang tersedia
 
-1. Siapkan database MySQL dan import skrip berikut:
+**Metode utama:**
 
-```sql
-CREATE TABLE produk (
-    kode_produk VARCHAR(10) PRIMARY KEY,
-    nama_produk VARCHAR(50),
-    harga INT,
-    sisa_stok INT
-);
+* `getKodeProduk()`, `setKodeProduk()`
+* `getNamaProduk()`, `setNamaProduk()`
+* `getHarga()`, `setHarga()`
+* `getSisaStok()`, `setSisaStok()`
 
--- Masukkan data awal produk
-INSERT INTO produk VALUES
-('382A', 'Keripik tempe', 10000, 25),
-('947B', 'Jenang wijen', 15000, 30),
-('016C', 'Teng teng', 10000, 28),
-('728D', 'Keripik bawang', 8000, 15),
-('394E', 'Keripik tenggiri', 15000, 20),
-('145F', 'Nopia cokelat', 13000, 18),
-('201G', 'Kue wijem', 15000, 24),
-('889H', 'Rengginang', 10000, 25),
-('320J', 'Keripik tahu', 10000, 29),
-('563K', 'Stik sukun', 13000, 30),
-('478L', 'Lanting', 10000, 9),
-('633M', 'Utir utir', 10000, 17),
-('251N', 'Rempeyek kacang', 12000, 12),
-('908P', 'Bolu kering', 14000, 23),
-('777Q', 'Sarang madu', 10000, 26);
+**Relasi:**
+
+* Digunakan oleh **DetailTransaksi** (relasi many-to-one) — banyak detail transaksi dapat memakai satu produk.
+
+---
+
+## 2. Kelas **Transaksi**
+
+**Deskripsi:**
+Mewakili transaksi pembelian oleh pelanggan.
+
+**Atribut:**
+
+* `idTransaksi : int` — ID unik transaksi (PK)
+* `tanggal : Date` — tanggal transaksi
+* `totalBayar : int` — total harga semua produk
+* `bayar : int` — jumlah uang yang dibayar pelanggan
+* `kembalian : int` — uang kembali setelah pembayaran
+
+**Metode utama:**
+
+* Getter dan setter semua atribut
+* `hitungKembalian()` — menghitung kembalian secara otomatis
+
+**Relasi:**
+
+* Memiliki banyak **DetailTransaksi** (relasi one-to-many) — satu transaksi punya banyak item pembelian.
+
+---
+
+## 3. Kelas **DetailTransaksi**
+
+**Deskripsi:**
+Mewakili rincian produk yang dibeli dalam satu transaksi.
+
+**Atribut:**
+
+* `idDetail : int` — ID detail transaksi (PK)
+* `transaksi : Transaksi` — referensi ke objek Transaksi
+* `produk : Produk` — referensi ke objek Produk
+* `jumlah : int` — jumlah produk yang dibeli
+* `subtotal : int` — harga subtotal (harga produk x jumlah)
+
+**Metode utama:**
+
+* Getter dan setter semua atribut
+* `hitungSubtotal()` — menghitung subtotal berdasarkan produk dan jumlah
+
+**Relasi:**
+
+* Berelasi many-to-one dengan **Transaksi**
+* Berelasi many-to-one dengan **Produk**
+
+---
+
+## 4. Kelas **ProdukDAO**
+
+**Deskripsi:**
+Kelas untuk akses dan manipulasi data produk di database.
+
+**Metode utama:**
+
+* `getAllProduk()` — mengambil semua produk
+* `getProdukByKode(String kode)` — cari produk berdasarkan kode
+* `updateStok(String kode, int stokBaru)` — update stok produk
+* `insertProduk(Produk p)` — tambah produk baru
+* `deleteProduk(String kode)` — hapus produk
+
+**Relasi:**
+
+* Berinteraksi langsung dengan tabel produk di database.
+* Digunakan oleh controller untuk manajemen produk.
+
+---
+
+## 5. Kelas **TransaksiDAO**
+
+**Deskripsi:**
+Mengelola data transaksi di database.
+
+**Metode utama:**
+
+* `saveTransaksi(Transaksi t)` — simpan transaksi baru
+* `getTransaksiById(int id)` — ambil transaksi berdasarkan ID
+* `getAllTransaksi()` — ambil semua transaksi
+
+**Relasi:**
+
+* Berinteraksi dengan tabel transaksi di database.
+
+---
+
+## 6. Kelas **DetailTransaksiDAO**
+
+**Deskripsi:**
+Mengelola data detail transaksi di database.
+
+**Metode utama:**
+
+* `saveDetail(DetailTransaksi dt)` — simpan detail transaksi
+* `getDetailsByTransaksi(Transaksi t)` — ambil semua detail produk dari transaksi tertentu
+
+**Relasi:**
+
+* Berinteraksi dengan tabel detail transaksi.
+
+---
+
+## 7. Kelas **DatabaseConnection**
+
+**Deskripsi:**
+Membuat dan mengelola koneksi database MySQL.
+
+**Metode utama:**
+
+* `getConnection()` — mengembalikan objek `Connection` untuk akses database.
+
+---
+
+## 8. Kelas **StrukPrinter**
+
+**Deskripsi:**
+Menghasilkan output struk transaksi.
+
+**Metode utama:**
+
+* `generateStruk(Transaksi t, List<DetailTransaksi> details)` — menghasilkan string struk transaksi untuk ditampilkan atau dicetak.
+
+---
+
+## 9. **Servlets (Controller)**
+
+**Deskripsi:**
+Menghubungkan antara interface web (JSP) dan logika bisnis.
+
+**Contoh:**
+
+* `ProdukServlet` — mengatur request produk (lihat, tambah, update)
+* `TransaksiServlet` — mengatur transaksi baru, hitung total, simpan data
+* `StrukServlet` — menampilkan atau mencetak struk setelah transaksi
+
+**Relasi:**
+
+* Memanggil DAO dan model sesuai kebutuhan.
+* Mengirim data ke JSP untuk ditampilkan ke user.
+
+---
+
+# Relasi Antar Kelas
+
+| Dari Kelas                                        | Ke Kelas           | Jenis Relasi       | Deskripsi                                       |
+| ------------------------------------------------- | ------------------ | ------------------ | ----------------------------------------------- |
+| Transaksi                                         | DetailTransaksi    | One to Many (1\:N) | Satu transaksi dapat punya banyak detail produk |
+| DetailTransaksi                                   | Produk             | Many to One (N:1)  | Banyak detail transaksi merujuk ke satu produk  |
+| DAO (ProdukDAO, TransaksiDAO, DetailTransaksiDAO) | DatabaseConnection | Association        | Semua DAO menggunakan koneksi database          |
+| Servlet                                           | DAO                | Association        | Servlet menggunakan DAO untuk operasi database  |
+
+---
+
+Kalau mau, saya bisa bantu buatkan diagram visualnya supaya gampang dipahami dan bisa langsung dimasukin ke README.
+Mau saya buatkan gambarnya juga?
