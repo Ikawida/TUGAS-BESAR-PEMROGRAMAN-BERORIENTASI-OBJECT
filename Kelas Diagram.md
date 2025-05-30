@@ -176,16 +176,18 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 
 # Kelas Diagram 
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
+
 ![alt text](?raw=true)
 
 
 # Screenshoot Tampilan (masih kasaran)
 Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian:
-![alt text](?raw=true)
 
-![alt text](?raw=true)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/2ca3e7cb6a26e0ec6c4c9a2845b5d8c69ab46197/Screenshot%202025-05-30%20171728.png?raw=true)
 
-![alt text](?raw=true)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/2ca3e7cb6a26e0ec6c4c9a2845b5d8c69ab46197/Screenshot%202025-05-30%20171706.png?raw=true)
+
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/2ca3e7cb6a26e0ec6c4c9a2845b5d8c69ab46197/Screenshot%202025-05-30%20172732.png?raw=true)
 
 
 
