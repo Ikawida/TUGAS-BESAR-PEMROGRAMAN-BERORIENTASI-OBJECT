@@ -4,7 +4,7 @@
 
 ---
 
-Aplikasi ini merupakan sistem kasir digital yang dirancang untuk membantu proses transaksi penjualan di toko atau usaha retail. Sistem ini memungkinkan pencatatan dan pengelolaan produk, transaksi, dan detail pembelian secara terstruktur dan efisien.
+Aplikasi ini merupakan sistem kasir digital yang dirancang untuk membantu proses transaksi penjualan di toko oleh-oleh. Sistem ini memungkinkan pencatatan dan pengelolaan produk, transaksi, dan detail pembelian secara terstruktur dan efisien.
 
 * Fitur Utama:
 Manajemen Produk: Menyimpan data produk seperti kode, nama, harga, dan jumlah stok yang tersedia.
