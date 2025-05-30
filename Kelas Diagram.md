@@ -174,4 +174,143 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 | DAO (ProdukDAO, TransaksiDAO, DetailTransaksiDAO) | DatabaseConnection | Association        | Semua DAO menggunakan koneksi database          |
 | Servlet                                           | DAO                | Association        | Servlet menggunakan DAO untuk operasi database  |
 
+# Kelas Diagram 
+
++------------------+
+|     Produk       |
++------------------+
+| - kodeProduk: String       |
+| - namaProduk: String       |
+| - harga: int               |
+| - sisaStok: int            |
++----------------------------+
+| + getKodeProduk()          |
+| + setKodeProduk(String)    |
+| + getNamaProduk()          |
+| + setNamaProduk(String)    |
+| + getHarga()               |
+| + setHarga(int)            |
+| + getSisaStok()            |
+| + setSisaStok(int)         |
++----------------------------+
+            ▲
+            |
+        N   |
+            | 1
++------------------------+
+|   DetailTransaksi      |
++------------------------+
+| - idDetail: int                 |
+| - transaksi: Transaksi         |
+| - produk: Produk               |
+| - jumlah: int                  |
+| - subtotal: int                |
++-------------------------------+
+| + get...(), set...()          |
+| + hitungSubtotal()            |
++-------------------------------+
+            ▲
+            |
+        N   |
+            | 1
++--------------------+
+|    Transaksi       |
++--------------------+
+| - idTransaksi: int         |
+| - tanggal: Date            |
+| - totalBayar: int          |
+| - bayar: int               |
+| - kembalian: int           |
++----------------------------+
+| + get...(), set...()       |
+| + hitungKembalian()        |
++----------------------------+
+
++------------------------+
+|    ProdukDAO           |
++------------------------+
+| + getAllProduk()                |
+| + getProdukByKode(kode: String)|
+| + updateStok(kode, stokBaru)   |
+| + insertProduk(p: Produk)      |
+| + deleteProduk(kode: String)   |
++--------------------------------+
+        |
+        | uses
+        ▼
++----------------------+
+| DatabaseConnection   |
++----------------------+
+| + getConnection()    |
++----------------------+
+
++---------------------------+
+|   TransaksiDAO           |
++---------------------------+
+| + saveTransaksi(t)       |
+| + getTransaksiById(id)   |
+| + getAllTransaksi()      |
++---------------------------+
+        |
+        | uses
+        ▼
++----------------------+
+| DatabaseConnection   |
++----------------------+
+
++------------------------------+
+|   DetailTransaksiDAO        |
++------------------------------+
+| + saveDetail(dt)            |
+| + getDetailsByTransaksi(t)  |
++------------------------------+
+        |
+        | uses
+        ▼
++----------------------+
+| DatabaseConnection   |
++----------------------+
+
++-------------------------------+
+|       StrukPrinter           |
++-------------------------------+
+| + generateStruk(t, details)  |
++-------------------------------+
+
++--------------------+
+|    ProdukServlet   |
++--------------------+
+| + doGet(), doPost()|
++--------------------+
+        |
+        | uses
+        ▼
++----------------+
+|   ProdukDAO    |
++----------------+
+
++----------------------+
+|  TransaksiServlet    |
++----------------------+
+| + doGet(), doPost()  |
++----------------------+
+        |
+        | uses
+        ▼
++----------------------+
+| TransaksiDAO         |
+| DetailTransaksiDAO   |
++----------------------+
+
++------------------+
+|  StrukServlet    |
++------------------+
+| + doGet()        |
++------------------+
+        |
+        | uses
+        ▼
++-------------------+
+|  StrukPrinter     |
++-------------------+
 
