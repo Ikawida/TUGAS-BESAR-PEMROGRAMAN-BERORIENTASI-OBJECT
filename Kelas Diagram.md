@@ -1,4 +1,4 @@
-# Aplikasi Kasir Toko Oleh-oleh
+                                                                                                # Aplikasi Kasir Toko Oleh-oleh
 
 ## Deskripsi Singkat
 Aplikasi kasir berbasis Java (Servlet & JSP) yang terhubung ke database MySQL.  
