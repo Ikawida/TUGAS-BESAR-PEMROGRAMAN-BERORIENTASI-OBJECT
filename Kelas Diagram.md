@@ -1,4 +1,23 @@
+---
 
+# Deskripsi Aplikasi (Website)
+
+---
+
+Aplikasi ini merupakan sistem kasir digital yang dirancang untuk membantu proses transaksi penjualan di toko atau usaha retail. Sistem ini memungkinkan pencatatan dan pengelolaan produk, transaksi, dan detail pembelian secara terstruktur dan efisien.
+
+* Fitur Utama:
+Manajemen Produk: Menyimpan data produk seperti kode, nama, harga, dan jumlah stok yang tersedia.
+
+* Pencatatan Transaksi: Setiap transaksi disimpan lengkap dengan tanggal, total pembayaran, uang yang dibayarkan pelanggan, serta kembalian.
+
+* Detail Transaksi: Mencatat daftar barang yang dibeli dalam satu transaksi, termasuk jumlah dan subtotal per produk.
+
+* Cetak Struk: Struk belanja otomatis dihasilkan setelah transaksi selesai sebagai bukti pembayaran.
+
+* Pengelolaan Data Berbasis DAO: Menggunakan pola Data Access Object agar proses pengambilan dan penyimpanan data lebih terstruktur dan mudah dikelola.
+
+* Integrasi Servlet: Memungkinkan aplikasi ini diakses melalui antarmuka web menggunakan servlet seperti ProdukServlet, TransaksiServlet, dan StrukServlet.
 
 ---
 
