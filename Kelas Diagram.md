@@ -29,7 +29,7 @@ Mewakili produk oleh-oleh yang dijual toko.
 
 * Digunakan oleh **DetailTransaksi** (relasi many-to-one) — banyak detail transaksi dapat memakai satu produk.
 
----
+
 
 ## 2. Kelas **Transaksi**
 
@@ -53,7 +53,6 @@ Mewakili transaksi pembelian oleh pelanggan.
 
 * Memiliki banyak **DetailTransaksi** (relasi one-to-many) — satu transaksi punya banyak item pembelian.
 
----
 
 ## 3. Kelas **DetailTransaksi**
 
@@ -78,7 +77,6 @@ Mewakili rincian produk yang dibeli dalam satu transaksi.
 * Berelasi many-to-one dengan **Transaksi**
 * Berelasi many-to-one dengan **Produk**
 
----
 
 ## 4. Kelas **ProdukDAO**
 
@@ -98,7 +96,6 @@ Kelas untuk akses dan manipulasi data produk di database.
 * Berinteraksi langsung dengan tabel produk di database.
 * Digunakan oleh controller untuk manajemen produk.
 
----
 
 ## 5. Kelas **TransaksiDAO**
 
@@ -115,8 +112,6 @@ Mengelola data transaksi di database.
 
 * Berinteraksi dengan tabel transaksi di database.
 
----
-
 ## 6. Kelas **DetailTransaksiDAO**
 
 **Deskripsi:**
@@ -131,7 +126,6 @@ Mengelola data detail transaksi di database.
 
 * Berinteraksi dengan tabel detail transaksi.
 
----
 
 ## 7. Kelas **DatabaseConnection**
 
@@ -142,7 +136,6 @@ Membuat dan mengelola koneksi database MySQL.
 
 * `getConnection()` — mengembalikan objek `Connection` untuk akses database.
 
----
 
 ## 8. Kelas **StrukPrinter**
 
@@ -152,8 +145,7 @@ Menghasilkan output struk transaksi.
 **Metode utama:**
 
 * `generateStruk(Transaksi t, List<DetailTransaksi> details)` — menghasilkan string struk transaksi untuk ditampilkan atau dicetak.
-
----
+  
 
 ## 9. **Servlets (Controller)**
 
@@ -171,7 +163,7 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 * Memanggil DAO dan model sesuai kebutuhan.
 * Mengirim data ke JSP untuk ditampilkan ke user.
 
----
+
 
 # Relasi Antar Kelas
 
@@ -182,7 +174,4 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 | DAO (ProdukDAO, TransaksiDAO, DetailTransaksiDAO) | DatabaseConnection | Association        | Semua DAO menggunakan koneksi database          |
 | Servlet                                           | DAO                | Association        | Servlet menggunakan DAO untuk operasi database  |
 
----
 
-Kalau mau, saya bisa bantu buatkan diagram visualnya supaya gampang dipahami dan bisa langsung dimasukin ke README.
-Mau saya buatkan gambarnya juga?
