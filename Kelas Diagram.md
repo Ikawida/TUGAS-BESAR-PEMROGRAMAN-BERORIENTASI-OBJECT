@@ -1,4 +1,4 @@
-Oke! Berikut penjelasan **detail tiap kelas**, atribut, metode utama, dan **relasi antar kelas** dalam aplikasi kasir toko oleh-oleh versi Java + database. Ini supaya bisa kamu jadikan dokumentasi yang lengkap di README atau laporan tugas.
+
 
 ---
 
