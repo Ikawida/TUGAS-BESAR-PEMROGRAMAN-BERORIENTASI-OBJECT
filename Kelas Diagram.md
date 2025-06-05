@@ -155,18 +155,7 @@ Membuat dan mengelola koneksi database MySQL.
 
 * `getConnection()` — mengembalikan objek `Connection` untuk akses database.
 
-
-## 8. Kelas **StrukPrinter**
-
-**Deskripsi:**
-Menghasilkan output struk transaksi.
-
-**Metode utama:**
-
-* `generateStruk(Transaksi t, List<DetailTransaksi> details)` — menghasilkan string struk transaksi untuk ditampilkan atau dicetak.
-  
-
-## 9. **Servlets (Controller)**
+## 8. **Servlets (Controller)**
 
 **Deskripsi:**
 Menghubungkan antara interface web (JSP) dan logika bisnis.
