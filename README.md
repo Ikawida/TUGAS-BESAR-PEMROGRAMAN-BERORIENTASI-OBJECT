@@ -206,7 +206,7 @@ Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian
 
 
 2. Tampilan bagian daftar produk
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/a99973246354b816f74c9638ea4f1370171dbdee/SCREENSHOOT/Screenshot%202025-06-05%20090211.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/b8ad8f669d9f58cdf0c2748320af141865e36464/SCREENSHOOT/Screenshot%202025-06-05%20112840.png)
 
 
 3. Tampilan bagian transaksi
