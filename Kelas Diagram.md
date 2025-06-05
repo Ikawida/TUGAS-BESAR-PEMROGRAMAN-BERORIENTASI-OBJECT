@@ -197,7 +197,7 @@ Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian
 
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/7cbe21f3970c4e081ef7c0bf5f281e680c0fe620/SCREENSHOOT/Screenshot%202025-06-05%20090327.png)
 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/2ca3e7cb6a26e0ec6c4c9a2845b5d8c69ab46197/Screenshot%202025-05-30%20172732.png?raw=true)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/0e25a7e9fb3d5dcd1ab3cd2b2d6c1292c13860a8/SCREENSHOOT/Screenshot%202025-06-05%20090615.png)
 
 
 
