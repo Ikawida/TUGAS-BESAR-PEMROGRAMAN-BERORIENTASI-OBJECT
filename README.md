@@ -182,8 +182,11 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 * Mengirim data ke JSP untuk ditampilkan ke user.
 
 
+---
 
 # Relasi Antar Kelas
+
+---
 
 | **Kelas 1**          | **Jenis Relasi**  | **Kelas 2**                                       | **Keterangan**                                                      |
 | -------------------- | ----------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
@@ -198,13 +201,23 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 | Semua `DAO`          | Dependency (Uses) | `DatabaseConnection`                              | Semua DAO mengambil koneksi dari kelas util ini                     |
 
 
+---
+
 # Kelas Diagram 
+
+---
+
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
 
 
+---
+
 # Screenshoot Tampilan 
+
+---
+
 Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian:
 
 1. Tampilan bagian tambah produk
