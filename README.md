@@ -267,7 +267,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
 
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/b0fbeb6ccc9c2528353a8403fed1cf51a0a97509/SCREENSHOOT/Struktur%20Database.png)
 
-1. Kelas produk
+1. Tabel produk
    Menyimpan informasi tentang daftar produk yang dijual di toko.
    (Diacu oleh tabel item_transaksi melalui kolom kode_produk)
 
@@ -305,6 +305,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
    * transaksi → item_transaksi
      
      Satu transaksi dapat memiliki banyak item transaksi (one-to-many).
+     
    * produk → item_transaksi
      
      Satu produk dapat muncul di banyak item transaksi (one-to-many).
