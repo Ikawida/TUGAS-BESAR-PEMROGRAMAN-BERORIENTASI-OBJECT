@@ -239,7 +239,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
    Menyimpan informasi tentang daftar produk yang dijual di toko.
    (Diacu oleh tabel item_transaksi melalui kolom kode_produk)
 
-   | Kolom         | Tipe Data     | Keterangan                         |
+| Kolom         | Tipe Data     | Keterangan                         |
 | ------------- | ------------- | ---------------------------------- |
 | `kode_produk` | `varchar(10)` | **Primary key** – Kode unik produk |
 | `nama_produk` | `varchar(50)` | Nama produk                        |
@@ -250,7 +250,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
    Menyimpan informasi utama dari setiap transaksi (penjualan).
    (Diacu oleh tabel item_transaksi melalui kolom transaksi_id)
 
-   | Kolom         | Tipe Data  | Keterangan                               |
+| Kolom         | Tipe Data  | Keterangan                               |
 | ------------- | ---------- | ---------------------------------------- |
 | `id`          | `int(11)`  | **Primary key** – ID transaksi           |
 | `tanggal`     | `datetime` | Tanggal dan waktu transaksi              |
@@ -261,7 +261,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
 3. Tabel  item_transaksi
    Merupakan tabel relasi antara transaksi dan produk, yang mencatat detail setiap item yang dibeli dalam suatu transaksi.
 
-   | Kolom          | Tipe Data     | Keterangan                                   |
+| Kolom          | Tipe Data     | Keterangan                                   |
 | -------------- | ------------- | -------------------------------------------- |
 | `id`           | `int(11)`     | **Primary key** – ID item transaksi          |
 | `transaksi_id` | `int(11)`     | **Foreign key** ke `transaksi(id)`           |
