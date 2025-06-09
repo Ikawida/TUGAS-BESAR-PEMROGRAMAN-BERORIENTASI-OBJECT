@@ -226,6 +226,19 @@ Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
 
 
+
+---
+# Struktur Database
+---
+
+Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh: 
+
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
+
+1. Kelas produk
+2. Tabel transaksi
+3. Tabel  item_transaksi
+
 ---
 
 # Screenshoot Tampilan 
