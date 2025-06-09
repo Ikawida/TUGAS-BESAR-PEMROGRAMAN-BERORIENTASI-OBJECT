@@ -207,12 +207,12 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 
 Berikut adalah prinsip oop yang ada didalam aplikasi kasir toko oleh-oleh:
 
-| **Konsep OOP**    |                                         **Penerapan**                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Encapsulation** | Semua atribut pada `Produk`, `Transaksi`, dan `DetailTransaksi` bersifat `private`, diakses via getter/setter |
-| **Abstraction**   | DAO menyembunyikan detail SQL, misalnya `getAllProduk()` menyederhanakan akses data                           |
-| **Inheritance**   | Semua servlet (`ProdukServlet`, `TransaksiServlet`) mewarisi dari `HttpServlet`                               |
-| **Polymorphism**  | Override `doGet()` dan `doPost()` di servlet untuk berbagai perilaku                                          |
+| **Prinsip PBO**   | **Penjelasan**                                                                     | **Contoh Kelas**                                                              | **Manfaat**                                              |
+| ----------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **Encapsulation** | Menyembunyikan atribut dalam kelas dan membukanya melalui getter/setter.           | `Produk`, `Transaksi`, `DetailTransaksi`                                      | Melindungi data, mencegah manipulasi langsung            |
+| **Abstraction**   | Menyembunyikan detail implementasi dan hanya menampilkan method penting.           | `ProdukDAO`, `TransaksiDAO`, `DatabaseConnection`                             | Memudahkan penggunaan, mengurangi kompleksitas           |
+| **Inheritance**   | Pewarisan sifat dari superclass ke subclass, memungkinkan penggunaan ulang method. | `ProdukServlet`, `TransaksiServlet`, `StrukServlet` (me-warisi `HttpServlet`) | Reusabilitas kode, efisiensi                             |
+| **Polymorphism**  | Method dengan nama sama tetapi implementasi berbeda sesuai konteks.                | `doGet()` dan `doPost()` pada semua `Servlet`                                 | Fleksibilitas implementasi sesuai kebutuhan tiap servlet |
 
 
 ---
