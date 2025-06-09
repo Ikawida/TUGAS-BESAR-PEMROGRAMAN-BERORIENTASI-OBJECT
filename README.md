@@ -185,17 +185,23 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 
 # Relasi Antar Kelas
 
-| Dari Kelas                                        | Ke Kelas           | Jenis Relasi       | Deskripsi                                       |
-| ------------------------------------------------- | ------------------ | ------------------ | ----------------------------------------------- |
-| Transaksi                                         | DetailTransaksi    | One to Many (1\:N) | Satu transaksi dapat punya banyak detail produk |
-| DetailTransaksi                                   | Produk             | Many to One (N:1)  | Banyak detail transaksi merujuk ke satu produk  |
-| DAO (ProdukDAO, TransaksiDAO, DetailTransaksiDAO) | DatabaseConnection | Association        | Semua DAO menggunakan koneksi database          |
-| Servlet                                           | DAO                | Association        | Servlet menggunakan DAO untuk operasi database  |
+| **Kelas 1**          | **Jenis Relasi**  | **Kelas 2**                                       | **Keterangan**                                                      |
+| -------------------- | ----------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| `Produk`             | One-to-Many       | `DetailTransaksi`                                 | Satu produk dapat muncul di banyak detail transaksi                 |
+| `Transaksi`          | One-to-Many       | `DetailTransaksi`                                 | Satu transaksi dapat memiliki banyak item produk (detail transaksi) |
+| `ProdukDAO`          | Dependency (Uses) | `Produk`                                          | DAO ini memanipulasi data entitas Produk                            |
+| `TransaksiDAO`       | Dependency (Uses) | `Transaksi`                                       | DAO ini menyimpan dan mengambil data transaksi                      |
+| `DetailTransaksiDAO` | Dependency (Uses) | `DetailTransaksi`                                 | DAO ini menyimpan dan mengambil data detail transaksi               |
+| `ProdukServlet`      | Dependency (Uses) | `ProdukDAO`                                       | Servlet ini menggunakan DAO untuk CRUD produk                       |
+| `TransaksiServlet`   | Dependency (Uses) | `TransaksiDAO`, `DetailTransaksiDAO`              | Servlet ini mengatur penyimpanan transaksi dan item                 |
+| `StrukServlet`       | Dependency (Uses) | `TransaksiDAO`, `DetailTransaksiDAO`, `ProdukDAO` | Servlet ini menampilkan data lengkap struk                          |
+| Semua `DAO`          | Dependency (Uses) | `DatabaseConnection`                              | Semua DAO mengambil koneksi dari kelas util ini                     |
+
 
 # Kelas Diagram 
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/21e2267facfba1d317b09ff5eb70afc6d5b7377f/kelas%20diagram.png?raw=true)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
 
 
 # Screenshoot Tampilan (masih kasaran)
