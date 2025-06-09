@@ -35,32 +35,49 @@ Manajemen Produk: Menyimpan data produk seperti kode, nama, harga, dan jumlah st
 
 ---
 
-## 1. Kelas **Produk**
+## 1. Kelas **Toko** *(Superclass)*
 
 **Deskripsi:**
-Mewakili produk oleh-oleh yang dijual toko.
+Mewakili entitas umum dari barang yang dijual di toko, menyimpan atribut dasar seperti kode dan nama.
 
 **Atribut:**
 
 * `kodeProduk : String` — kode unik produk (PK)
 * `namaProduk : String` — nama produk
-* `harga : int` — harga satuan produk
-* `sisaStok : int` — jumlah stok yang tersedia
 
 **Metode utama:**
 
 * `getKodeProduk()`, `setKodeProduk()`
 * `getNamaProduk()`, `setNamaProduk()`
+
+**Relasi:**
+
+* Menjadi superclass dari **Produk**.
+* Menyediakan atribut dasar yang bisa digunakan oleh kelas turunan lain di masa depan (konsep reusable inheritance).
+
+
+## 2. Kelas **Produk** *(extends Toko)*
+
+**Deskripsi:**
+Mewakili produk oleh-oleh yang dijual toko. Kelas ini mewarisi kode dan nama dari `Toko`.
+
+**Atribut tambahan:**
+
+* `harga : int` — harga satuan produk
+* `sisaStok : int` — jumlah stok yang tersedia
+
+**Metode utama:**
+
 * `getHarga()`, `setHarga()`
 * `getSisaStok()`, `setSisaStok()`
+* (Metode dari superclass `Toko` juga dapat digunakan: `getKodeProduk()`, `getNamaProduk()`, dll.)
 
 **Relasi:**
 
 * Digunakan oleh **DetailTransaksi** (relasi many-to-one) — banyak detail transaksi dapat memakai satu produk.
 
 
-
-## 2. Kelas **Transaksi**
+## 3. Kelas **Transaksi** 
 
 **Deskripsi:**
 Mewakili transaksi pembelian oleh pelanggan.
@@ -83,7 +100,7 @@ Mewakili transaksi pembelian oleh pelanggan.
 * Memiliki banyak **DetailTransaksi** (relasi one-to-many) — satu transaksi punya banyak item pembelian.
 
 
-## 3. Kelas **DetailTransaksi**
+## 4. Kelas **DetailTransaksi** 
 
 **Deskripsi:**
 Mewakili rincian produk yang dibeli dalam satu transaksi.
@@ -94,12 +111,12 @@ Mewakili rincian produk yang dibeli dalam satu transaksi.
 * `transaksi : Transaksi` — referensi ke objek Transaksi
 * `produk : Produk` — referensi ke objek Produk
 * `jumlah : int` — jumlah produk yang dibeli
-* `subtotal : int` — harga subtotal (harga produk x jumlah)
+* `subtotal : int` — harga subtotal (harga produk × jumlah)
 
 **Metode utama:**
 
 * Getter dan setter semua atribut
-* `hitungSubtotal()` — menghitung subtotal berdasarkan produk dan jumlah
+* `hitungSubtotal()` — menghitung subtotal berdasarkan harga dan jumlah
 
 **Relasi:**
 
@@ -107,7 +124,7 @@ Mewakili rincian produk yang dibeli dalam satu transaksi.
 * Berelasi many-to-one dengan **Produk**
 
 
-## 4. Kelas **ProdukDAO**
+## 5. Kelas **ProdukDAO** 
 
 **Deskripsi:**
 Kelas untuk akses dan manipulasi data produk di database.
@@ -123,10 +140,10 @@ Kelas untuk akses dan manipulasi data produk di database.
 **Relasi:**
 
 * Berinteraksi langsung dengan tabel produk di database.
-* Digunakan oleh controller untuk manajemen produk.
+* Digunakan oleh controller (`ProdukServlet`) untuk manajemen produk.
 
 
-## 5. Kelas **TransaksiDAO**
+## 6. Kelas **TransaksiDAO** 
 
 **Deskripsi:**
 Mengelola data transaksi di database.
@@ -139,9 +156,10 @@ Mengelola data transaksi di database.
 
 **Relasi:**
 
-* Berinteraksi dengan tabel transaksi di database.
+* Berinteraksi langsung dengan tabel transaksi di database.
 
-## 6. Kelas **DetailTransaksiDAO**
+
+## 7. Kelas **DetailTransaksiDAO** 
 
 **Deskripsi:**
 Mengelola data detail transaksi di database.
@@ -153,10 +171,10 @@ Mengelola data detail transaksi di database.
 
 **Relasi:**
 
-* Berinteraksi dengan tabel detail transaksi.
+* Berinteraksi langsung dengan tabel detail transaksi.
 
 
-## 7. Kelas **DatabaseConnection**
+## 8. Kelas **DatabaseConnection** 
 
 **Deskripsi:**
 Membuat dan mengelola koneksi database MySQL.
@@ -165,31 +183,48 @@ Membuat dan mengelola koneksi database MySQL.
 
 * `getConnection()` — mengembalikan objek `Connection` untuk akses database.
 
-## 8. **Servlets (Controller)**
+
+## 9. **Servlets (Controller)** 
 
 **Deskripsi:**
-Menghubungkan antara interface web (JSP) dan logika bisnis.
+Menghubungkan antara interface web (JSP) dan logika bisnis aplikasi.
 
-**Berikut kelas dari servlet:**
+**Daftar Servlet:**
 
-* `ProdukServlet` — mengatur request produk (lihat, tambah, update)/CRUD via website. Methodnya ada 2 yaitu: doGet() untuk Menampilkan daftar atau form produk dan doPost() untuk memproses penyimpanan atau pembaruan produk.
-* `TransaksiServlet` — mengatur transaksi baru, hitung total, simpan data (Servlet untuk menangani proses transaksi). Methodnya ada 2 yaitu: doGet() untuk menampilkan form transaksi atau detail dan doPost() untuk menyimpan transaksi dan detail ke database.
-* `StrukServlet` — menampilkan atau mencetak struk setelah transaksi (Servlet untuk menampilkan struk berdasarkan transaksi). Methodnya yaitu: doGet() untuk mengambil data transaksi dan detail, tampilkan di struk.jsp.
+### `ProdukServlet`
+
+Mengatur permintaan terkait produk (lihat, tambah, ubah, hapus).
+
+* `doGet()` — menampilkan daftar produk atau form edit
+* `doPost()` — memproses penyimpanan produk (tambah atau update)
+
+### `TransaksiServlet`
+
+Mengelola proses transaksi pelanggan.
+
+* `doGet()` — menampilkan form transaksi atau daftar
+* `doPost()` — menyimpan transaksi dan detailnya ke database
+
+### `StrukServlet`
+
+Menampilkan struk transaksi.
+
+* `doGet()` — mengambil data transaksi dan detail lalu kirim ke `struk.jsp`
 
 **Relasi:**
 
-* Memanggil DAO dan model sesuai kebutuhan.
-* Mengirim data ke JSP untuk menampilkan data lengkap struk.
+* Memanggil DAO untuk akses data
+* Mengelola alur logika sesuai permintaan dari user via browser
+* Mengirim data ke JSP untuk ditampilkan ke user
 
 
 ---
-
 # Relasi Antar Kelas
-
 ---
 
 | **Kelas 1**          | **Jenis Relasi**  | **Kelas 2**                                       | **Keterangan**                                                      |
 | -------------------- | ----------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| `Toko`               | Inheritance       | `Produk`                                          | `Produk` mewarisi atribut dasar `kodeProduk` dan `namaProduk`       |
 | `Produk`             | One-to-Many       | `DetailTransaksi`                                 | Satu produk dapat muncul di banyak detail transaksi                 |
 | `Transaksi`          | One-to-Many       | `DetailTransaksi`                                 | Satu transaksi dapat memiliki banyak item produk (detail transaksi) |
 | `ProdukDAO`          | Dependency (Uses) | `Produk`                                          | DAO ini memanipulasi data entitas Produk                            |
@@ -207,24 +242,21 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 
 Berikut adalah prinsip oop yang ada didalam aplikasi kasir toko oleh-oleh:
 
-| **Prinsip PBO**   | **Penjelasan**                                                                     | **Contoh Kelas**                                                              | **Manfaat**                                              |
-| ----------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------- |
-| **Encapsulation** | Menyembunyikan atribut dalam kelas dan membukanya melalui getter/setter.           | `Produk`, `Transaksi`, `DetailTransaksi`                                      | Melindungi data, mencegah manipulasi langsung            |
-| **Abstraction**   | Menyembunyikan detail implementasi dan hanya menampilkan method penting.           | `ProdukDAO`, `TransaksiDAO`, `DatabaseConnection`                             | Memudahkan penggunaan, mengurangi kompleksitas           |
-| **Inheritance**   | Pewarisan sifat dari superclass ke subclass, memungkinkan penggunaan ulang method. | `ProdukServlet`, `TransaksiServlet`, `StrukServlet` (me-warisi `HttpServlet`) | Reusabilitas kode, efisiensi                             |
-| **Polymorphism**  | Method dengan nama sama tetapi implementasi berbeda sesuai konteks.                | `doGet()` dan `doPost()` pada semua `Servlet`                                 | Fleksibilitas implementasi sesuai kebutuhan tiap servlet |
+| **Prinsip PBO**   | **Penjelasan**                                                                                | **Contoh Penerapan**                                                                                                                                                                                                                                                                                   | **Manfaat**                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **Encapsulation** | Menyembunyikan atribut dalam kelas (biasanya `private`) dan hanya mengaksesnya lewat method.  | Di dalam kelas `Produk`, `Transaksi`, dan `DetailTransaksi`, semua atribut seperti `kodeProduk`, `harga`, `jumlah`, dll. disembunyikan dengan modifier `private`, lalu diakses lewat `getter` dan `setter`. File: `model/Produk.java`, `model/Transaksi.java`, dll.                                    | Melindungi data agar tidak bisa diubah sembarangan dari luar kelas.                         |
+| **Abstraction**   | Menyediakan antarmuka publik (method) tanpa mengungkap detail teknis implementasi.            | DAO seperti `ProdukDAO`, `TransaksiDAO`, dan `DatabaseConnection` menyembunyikan detail koneksi dan query SQL. Misalnya, `getAllProduk()` digunakan oleh controller tanpa tahu isi SQL-nya. File: `dao/ProdukDAO.java`, `util/DatabaseConnection.java`                                                 | Menyederhanakan penggunaan kelas kompleks bagi pemanggilnya (misal controller/servlet).     |
+| **Inheritance**   | Subclass mewarisi atribut dan method dari superclass.                                         | 1. Semua servlet (`ProdukServlet`, `TransaksiServlet`, `StrukServlet`) **mewarisi** dari `HttpServlet`, sehingga otomatis punya `doGet()` dan `doPost()`.<br>2. Kelas `Produk` **mewarisi** dari `Toko` yang menyimpan properti umum (misal `kode`, `nama`). File: `controller/*`, `model/Produk.java` | Mengurangi duplikasi kode, memudahkan pemeliharaan, dan menyusun struktur yang lebih rapi.  |
+| **Polymorphism**  | Method yang sama bisa memiliki implementasi berbeda tergantung kelas/objek yang memanggilnya. | Method `doGet()` dan `doPost()` ada di semua servlet (`ProdukServlet`, `TransaksiServlet`, dll), tapi masing-masing memiliki logika yang berbeda sesuai kebutuhan. File: `controller/ProdukServlet.java`, `TransaksiServlet.java`, `StrukServlet.java`                                                 | Memberikan fleksibilitas implementasi sesuai dengan konteks atau tugas masing-masing objek. |
 
 
 ---
-
 # Kelas Diagram 
-
 ---
 
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
-
 
 
 ---
