@@ -271,8 +271,10 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
 
 4. Relasi Antar Tabel
    * transaksi → item_transaksi
+     
      Satu transaksi dapat memiliki banyak item transaksi (one-to-many).
    * produk → item_transaksi
+     
      Satu produk dapat muncul di banyak item transaksi (one-to-many).
    
 ---
