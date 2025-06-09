@@ -202,6 +202,20 @@ Menghubungkan antara interface web (JSP) dan logika bisnis.
 
 
 ---
+# Konsep OOP
+---
+
+Berikut adalah prinsip oop yang ada didalam aplikasi kasir toko oleh-oleh:
+
+| **Konsep OOP**    |                                         **Penerapan**                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Encapsulation** | Semua atribut pada `Produk`, `Transaksi`, dan `DetailTransaksi` bersifat `private`, diakses via getter/setter |
+| **Abstraction**   | DAO menyembunyikan detail SQL, misalnya `getAllProduk()` menyederhanakan akses data                           |
+| **Inheritance**   | Semua servlet (`ProdukServlet`, `TransaksiServlet`) mewarisi dari `HttpServlet`                               |
+| **Polymorphism**  | Override `doGet()` dan `doPost()` di servlet untuk berbagai perilaku                                          |
+
+
+---
 
 # Kelas Diagram 
 
