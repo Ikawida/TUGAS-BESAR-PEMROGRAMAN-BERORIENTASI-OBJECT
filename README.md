@@ -239,35 +239,35 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
    Menyimpan informasi tentang daftar produk yang dijual di toko.
    (Diacu oleh tabel item_transaksi melalui kolom kode_produk)
 
-| Kolom         | Tipe Data     | Keterangan                         |
-| ------------- | ------------- | ---------------------------------- |
-| `kode_produk` | `varchar(10)` | **Primary key** – Kode unik produk |
-| `nama_produk` | `varchar(50)` | Nama produk                        |
-| `harga`       | `int(11)`     | Harga satuan produk                |
-| `sisa_stok`   | `int(11)`     | Jumlah stok yang tersedia          |
+  | Kolom         | Tipe Data     | Keterangan                         |
+  | ------------- | ------------- | ---------------------------------- |
+  | `kode_produk` | `varchar(10)` | **Primary key** – Kode unik produk |
+  | `nama_produk` | `varchar(50)` | Nama produk                        |
+  | `harga`       | `int(11)`     | Harga satuan produk                |
+  | `sisa_stok`   | `int(11)`     | Jumlah stok yang tersedia          |
 
 2. Tabel transaksi
    Menyimpan informasi utama dari setiap transaksi (penjualan).
    (Diacu oleh tabel item_transaksi melalui kolom transaksi_id)
 
-| Kolom         | Tipe Data  | Keterangan                               |
-| ------------- | ---------- | ---------------------------------------- |
-| `id`          | `int(11)`  | **Primary key** – ID transaksi           |
-| `tanggal`     | `datetime` | Tanggal dan waktu transaksi              |
-| `total_bayar` | `int(11)`  | Total harga semua produk dalam transaksi |
-| `bayar`       | `int(11)`  | Uang yang dibayarkan oleh pembeli        |
-| `kembalian`   | `int(11)`  | Uang kembalian ke pembeli                |
+  | Kolom         | Tipe Data  | Keterangan                               |
+  | ------------- | ---------- | ---------------------------------------- |
+  | `id`          | `int(11)`  | **Primary key** – ID transaksi           |
+  | `tanggal`     | `datetime` | Tanggal dan waktu transaksi              |
+  | `total_bayar` | `int(11)`  | Total harga semua produk dalam transaksi |
+  | `bayar`       | `int(11)`  | Uang yang dibayarkan oleh pembeli        |
+  | `kembalian`   | `int(11)`  | Uang kembalian ke pembeli                |
 
 3. Tabel  item_transaksi
    Merupakan tabel relasi antara transaksi dan produk, yang mencatat detail setiap item yang dibeli dalam suatu transaksi.
 
-| Kolom          | Tipe Data     | Keterangan                                   |
-| -------------- | ------------- | -------------------------------------------- |
-| `id`           | `int(11)`     | **Primary key** – ID item transaksi          |
-| `transaksi_id` | `int(11)`     | **Foreign key** ke `transaksi(id)`           |
-| `kode_produk`  | `varchar(20)` | **Foreign key** ke `produk(kode_produk)`     |
-| `jumlah`       | `int(11)`     | Jumlah produk yang dibeli                    |
-| `subtotal`     | `int(11)`     | Total harga dari produk ini (jumlah × harga) |
+  | Kolom          | Tipe Data     | Keterangan                                   |
+  | -------------- | ------------- | -------------------------------------------- |
+  | `id`           | `int(11)`     | **Primary key** – ID item transaksi          |
+  | `transaksi_id` | `int(11)`     | **Foreign key** ke `transaksi(id)`           |
+  | `kode_produk`  | `varchar(20)` | **Foreign key** ke `produk(kode_produk)`     |
+  | `jumlah`       | `int(11)`     | Jumlah produk yang dibeli                    |
+  | `subtotal`     | `int(11)`     | Total harga dari produk ini (jumlah × harga) |
 
 4. Relasi Antar Tabel
    * transaksi → item_transaksi
