@@ -252,15 +252,15 @@ Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian
 
 
 2. Tampilan bagian daftar produk
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/b8ad8f669d9f58cdf0c2748320af141865e36464/SCREENSHOOT/Screenshot%202025-06-05%20112840.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/e5a422e913adad418f12670782a268a7a1d93836/SCREENSHOOT/Tampilan%20Bagian%20Daftar%20Produk.png)
 
 
 3. Tampilan bagian transaksi
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/7cbe21f3970c4e081ef7c0bf5f281e680c0fe620/SCREENSHOOT/Screenshot%202025-06-05%20090327.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/e5a422e913adad418f12670782a268a7a1d93836/SCREENSHOOT/Tampilan%20Bagian%20Transaksi.png)
 
 
 4. Tampilan bagian struk 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/0e25a7e9fb3d5dcd1ab3cd2b2d6c1292c13860a8/SCREENSHOOT/Screenshot%202025-06-05%20090615.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/e5a422e913adad418f12670782a268a7a1d93836/SCREENSHOOT/Tampilan%20Bagian%20Struk.png)
 
 
 
