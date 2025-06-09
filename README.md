@@ -248,7 +248,7 @@ Berikut adalah struktur database dari aplikasi kasir toko oleh-oleh:
 Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian:
 
 1. Tampilan bagian tambah produk
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/fc00c4ad10116241e114e1096331f15774af4bd4/SCREENSHOOT/Screenshot%202025-06-05%20090028.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/5648469b308d376b3a3646615b6926b55567c436/SCREENSHOOT/Tampilan%20Bagian%20Tambah%20Produk.png)
 
 
 2. Tampilan bagian daftar produk
