@@ -237,6 +237,15 @@ Menampilkan struk transaksi.
 
 
 ---
+# Kelas Diagram 
+---
+
+Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
+
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
+
+
+---
 # Konsep OOP
 ---
 
@@ -248,15 +257,6 @@ Berikut adalah prinsip oop yang ada didalam aplikasi kasir toko oleh-oleh:
 | **Abstraction**   | Menyediakan antarmuka publik (method) tanpa mengungkap detail teknis implementasi.            | DAO seperti `ProdukDAO`, `TransaksiDAO`, dan `DatabaseConnection` menyembunyikan detail koneksi dan query SQL. Misalnya, `getAllProduk()` digunakan oleh controller tanpa tahu isi SQL-nya. File: `dao/ProdukDAO.java`, `util/DatabaseConnection.java`                                                 | Menyederhanakan penggunaan kelas kompleks bagi pemanggilnya (misal controller/servlet).     |
 | **Inheritance**   | Subclass mewarisi atribut dan method dari superclass.                                         | 1. Semua servlet (`ProdukServlet`, `TransaksiServlet`, `StrukServlet`) **mewarisi** dari `HttpServlet`, sehingga otomatis punya `doGet()` dan `doPost()`.<br>2. Kelas `Produk` **mewarisi** dari `Toko` yang menyimpan properti umum (misal `kode`, `nama`). File: `controller/*`, `model/Produk.java` | Mengurangi duplikasi kode, memudahkan pemeliharaan, dan menyusun struktur yang lebih rapi.  |
 | **Polymorphism**  | Method yang sama bisa memiliki implementasi berbeda tergantung kelas/objek yang memanggilnya. | Method `doGet()` dan `doPost()` ada di semua servlet (`ProdukServlet`, `TransaksiServlet`, dll), tapi masing-masing memiliki logika yang berbeda sesuai kebutuhan. File: `controller/ProdukServlet.java`, `TransaksiServlet.java`, `StrukServlet.java`                                                 | Memberikan fleksibilitas implementasi sesuai dengan konteks atau tugas masing-masing objek. |
-
-
----
-# Kelas Diagram 
----
-
-Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
-
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
 
 
 ---
