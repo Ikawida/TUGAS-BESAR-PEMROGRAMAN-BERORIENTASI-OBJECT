@@ -170,16 +170,16 @@ Membuat dan mengelola koneksi database MySQL.
 **Deskripsi:**
 Menghubungkan antara interface web (JSP) dan logika bisnis.
 
-**Contoh:**
+**Berikut kelas dari servlet:**
 
-* `ProdukServlet` — mengatur request produk (lihat, tambah, update)
-* `TransaksiServlet` — mengatur transaksi baru, hitung total, simpan data
-* `StrukServlet` — menampilkan atau mencetak struk setelah transaksi
+* `ProdukServlet` — mengatur request produk (lihat, tambah, update)/CRUD via website. Methodnya ada 2 yaitu: doGet() untuk Menampilkan daftar atau form produk dan doPost() untuk memproses penyimpanan atau pembaruan produk.
+* `TransaksiServlet` — mengatur transaksi baru, hitung total, simpan data (Servlet untuk menangani proses transaksi). Methodnya ada 2 yaitu: doGet() untuk menampilkan form transaksi atau detail dan doPost() untuk menyimpan transaksi dan detail ke database.
+* `StrukServlet` — menampilkan atau mencetak struk setelah transaksi (Servlet untuk menampilkan struk berdasarkan transaksi). Methodnya yaitu: doGet() untuk mengambil data transaksi dan detail, tampilkan di struk.jsp.
 
 **Relasi:**
 
 * Memanggil DAO dan model sesuai kebutuhan.
-* Mengirim data ke JSP untuk ditampilkan ke user.
+* Mengirim data ke JSP untuk menampilkan data lengkap struk.
 
 
 ---
