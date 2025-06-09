@@ -204,7 +204,7 @@ Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 ![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
 
 
-# Screenshoot Tampilan (masih kasaran)
+# Screenshoot Tampilan 
 Berikut adalah tampilan dari aplikasi kasir toko oleh-oleh untuk beberapa bagian:
 
 1. Tampilan bagian tambah produk
