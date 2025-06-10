@@ -242,7 +242,7 @@ Menampilkan struk transaksi.
 
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/ac2d158f13a6714a592cca15185144c62269d4ec/SCREENSHOOT/Kelas%20Diagram.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/1fcebeeb855198f94050b8aa872224be01515437/SCREENSHOOT/Kelas%20Diagram.png)
 
 
 ---
