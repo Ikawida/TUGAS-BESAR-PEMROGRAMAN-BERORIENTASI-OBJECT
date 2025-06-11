@@ -242,14 +242,20 @@ Menampilkan struk transaksi.
 
 Berikut adalah class diagram dari aplikasi kasir toko oleh-oleh:
 
-![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/1fcebeeb855198f94050b8aa872224be01515437/SCREENSHOOT/Kelas%20Diagram.png)
+![alt text](https://github.com/Ikawida/TUGAS-BESAR-PEMROGRAMAN-BERORIENTASI-OBJECT/blob/70041210c38c658ab8acf6c053beda4abd1c62fc/SCREENSHOOT/Kelas%20Diagram.png)
 
 Diagram kelas di atas menggambarkan struktur dan hubungan antar kelas dalam sistem aplikasi kasir. Setiap kelas merepresentasikan entitas atau komponen logis dalam sistem:
+
 •	Kelas Produk dan Toko menunjukkan hubungan pewarisan, di mana Toko merupakan turunan dari Produk yang mewarisi atribut harga dan stok, serta menambahkan identitas produk seperti kode dan nama produk.
+
 •	Kelas Transaksi memiliki relasi agregasi dengan satu atau lebih objek DetailTransaksi, mencerminkan bahwa satu transaksi terdiri dari banyak detail transaksi.
+
 •	Kelas DetailTransaksi memiliki referensi ke produk yang dijual dalam transaksi.
+
 •	Kelas DAO (Data Access Object) seperti ProdukDAO, TransaksiDAO, dan DetailTransaksiDAO bertugas mengakses dan memanipulasi data dalam basis data. Setiap DAO bergantung pada kelas DatabaseConnection untuk mendapatkan koneksi ke database.
+
 •	Kelas servlet (ProdukServlet, TransaksiServlet, dan StrukServlet) menggunakan DAO terkait untuk mengatur alur logika aplikasi dari sisi server (web backend).
+
 •	Garis panah bertanda uses menunjukkan hubungan pemakaian (dependency) antar kelas. Sementara itu, garis dengan label depends on menunjukkan ketergantungan terhadap koneksi database.
 
 
